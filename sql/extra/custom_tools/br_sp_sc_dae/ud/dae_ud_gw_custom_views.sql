@@ -12,7 +12,7 @@ CREATE OR REPLACE VIEW gw_sdp.v_daescs_connec_search AS
     vw_daecom_endereco.cod_rua AS code_street,
     vw_daecom_endereco.numero AS num_portal
    FROM gw_saa.connec
-     JOIN gw_saa.rtc_hydrometer_x_connec ON rtc_hydrometer_x_connec.connec_id::text = connec.connec_id::text
+     JOIN gw_saa.rtc_hydrometer_x_connec ON rtc_hydrometer_x_connec.connec_id = connec.connec_id
      JOIN vw_daecom_endereco ON rtc_hydrometer_x_connec.hydrometer_id::text = vw_daecom_endereco.cod_dae::text;
 
 CREATE OR REPLACE VIEW gw_sdp.v_daescs_point AS 
@@ -108,10 +108,10 @@ CREATE OR REPLACE VIEW gw_sdp.v_daescs_ws_connec AS
     connec.workcat_id_end
    FROM gw_saa.connec
      JOIN gw_saa.cat_connec ON connec.connecat_id::text = cat_connec.id::text
-     LEFT JOIN gw_saa.v_rtc_hydrometer_x_connec ON connec.connec_id::text = v_rtc_hydrometer_x_connec.connec_id::text
+     LEFT JOIN gw_saa.v_rtc_hydrometer_x_connec ON connec.connec_id = v_rtc_hydrometer_x_connec.connec_id
      LEFT JOIN gw_saa.ext_streetaxis ON connec.streetaxis_id::text = ext_streetaxis.id::text
-     LEFT JOIN gw_saa.link ON connec.connec_id::text = link.connec_id::text
-     LEFT JOIN gw_saa.vnode ON vnode.vnode_id::text = link.vnode_id::text
+     LEFT JOIN gw_saa.link ON connec.connec_id = link.connec_id
+     LEFT JOIN gw_saa.vnode ON vnode.vnode_id = link.vnode_id
      LEFT JOIN gw_saa.dma ON connec.dma_id::text = dma.dma_id::text;
 
 
@@ -143,4 +143,4 @@ CREATE OR REPLACE VIEW gw_sdp.v_daescs_ws_hydrometer AS
      LEFT JOIN gw_saa.ext_cat_hydrometer ON ext_cat_hydrometer.id::text = ext_rtc_hydrometer.cat_hydrometer_id::text
      JOIN gw_saa.ext_hydrometer_category ON ext_hydrometer_category.id = ext_rtc_hydrometer.hydrometer_category::text
      JOIN gw_saa.rtc_hydrometer_x_connec ON rtc_hydrometer_x_connec.hydrometer_id::text = rtc_hydrometer.hydrometer_id::text
-     JOIN gw_saa.connec ON rtc_hydrometer_x_connec.connec_id::text = connec.connec_id::text;
+     JOIN gw_saa.connec ON rtc_hydrometer_x_connec.connec_id = connec.connec_id;

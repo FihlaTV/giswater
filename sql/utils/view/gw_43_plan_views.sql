@@ -30,7 +30,7 @@ SELECT
     plan_psector.atlas_id,
     v_plan_arc.the_geom
    FROM selector_psector, v_plan_arc
-    JOIN plan_psector_x_arc ON plan_psector_x_arc.arc_id::text = v_plan_arc.arc_id::text
+    JOIN plan_psector_x_arc ON plan_psector_x_arc.arc_id = v_plan_arc.arc_id
     JOIN plan_psector ON plan_psector.psector_id = plan_psector_x_arc.psector_id
     WHERE selector_psector.cur_user = "current_user"()::text AND selector_psector.psector_id = plan_psector_x_arc.psector_id 
 	AND v_plan_arc.state = 2 AND plan_psector_x_arc.doable = true

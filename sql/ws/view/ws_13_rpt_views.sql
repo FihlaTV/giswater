@@ -152,7 +152,7 @@ rpt_arc.ffactor,
 rpt_arc.time,
 arc.the_geom
 FROM rpt_selector_result, rpt_selector_hourly, rpt_inp_arc arc
-JOIN rpt_arc ON rpt_arc.arc_id::text = arc.arc_id::text
+JOIN rpt_arc ON rpt_arc.arc_id = arc.arc_id
 WHERE rpt_arc.result_id::text = rpt_selector_result.result_id::text
 AND rpt_arc.time=rpt_selector_hourly.time
 AND rpt_selector_result.cur_user = "current_user"()::text
@@ -174,7 +174,7 @@ rpt_node.quality,
 rpt_node.time,
 node.the_geom
 FROM rpt_selector_result, rpt_selector_hourly, rpt_inp_node node
-JOIN rpt_node ON rpt_node.node_id::text = node.node_id::text
+JOIN rpt_node ON rpt_node.node_id = node.node_id
 WHERE rpt_node.result_id::text = rpt_selector_result.result_id::text
 AND rpt_node.time=rpt_selector_hourly.time
 AND rpt_selector_result.cur_user = "current_user"()::text
@@ -282,7 +282,7 @@ rpt_arc.ffactor,
 rpt_arc.time,
 arc.the_geom
 FROM rpt_selector_compare, rpt_selector_hourly, rpt_inp_arc arc
-JOIN rpt_arc ON rpt_arc.arc_id::text = arc.arc_id::text
+JOIN rpt_arc ON rpt_arc.arc_id = arc.arc_id
 WHERE rpt_arc.result_id::text = rpt_selector_compare.result_id::text
 AND rpt_arc.time=rpt_selector_hourly.time
 AND rpt_selector_compare.cur_user = "current_user"()::text
@@ -302,7 +302,7 @@ rpt_node.quality,
 rpt_node.time,
 node.the_geom
 FROM rpt_selector_compare, rpt_selector_hourly, rpt_inp_node node
-JOIN rpt_node ON rpt_node.node_id::text = node.node_id::text
+JOIN rpt_node ON rpt_node.node_id = node.node_id
 WHERE rpt_node.result_id::text = rpt_selector_compare.result_id::text
 AND rpt_node.time=rpt_selector_hourly.time
 AND rpt_selector_compare.cur_user = "current_user"()::text

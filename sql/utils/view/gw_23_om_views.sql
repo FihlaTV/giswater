@@ -80,7 +80,7 @@ SELECT om_visit_event.id AS event_id,
     JOIN om_visit_event ON om_visit.id = om_visit_event.visit_id
     JOIN om_visit_x_arc ON om_visit_x_arc.visit_id = om_visit.id
     LEFT JOIN om_visit_parameter ON om_visit_parameter.id::text = om_visit_event.parameter_id::text
-    JOIN arc ON arc.arc_id::text = om_visit_x_arc.arc_id::text
+    JOIN arc ON arc.arc_id = om_visit_x_arc.arc_id
     LEFT JOIN ( SELECT DISTINCT om_visit_event_photo.event_id
            FROM om_visit_event_photo) a ON a.event_id = om_visit_event.id
     LEFT JOIN ( SELECT DISTINCT doc_x_visit.visit_id
@@ -122,7 +122,7 @@ SELECT om_visit_event.id AS event_id,
     JOIN om_visit_event ON om_visit.id = om_visit_event.visit_id
     JOIN om_visit_x_connec ON om_visit_x_connec.visit_id = om_visit.id
     JOIN om_visit_parameter ON om_visit_parameter.id::text = om_visit_event.parameter_id::text
-    LEFT JOIN connec ON connec.connec_id::text = om_visit_x_connec.connec_id::text
+    LEFT JOIN connec ON connec.connec_id = om_visit_x_connec.connec_id
     LEFT JOIN ( SELECT DISTINCT om_visit_event_photo.event_id
            FROM om_visit_event_photo) a ON a.event_id = om_visit_event.id
     LEFT JOIN ( SELECT DISTINCT doc_x_visit.visit_id
@@ -204,7 +204,7 @@ CREATE VIEW "v_om_psector_x_arc" AS
 	om_psector.active,
     om_rec_result_arc.the_geom
    FROM selector_expl, selector_state, om_rec_result_arc
-     JOIN om_psector_x_arc ON om_psector_x_arc.arc_id::text = om_rec_result_arc.arc_id::text
+     JOIN om_psector_x_arc ON om_psector_x_arc.arc_id = om_rec_result_arc.arc_id
      JOIN om_psector ON om_psector.psector_id = om_psector_x_arc.psector_id
      JOIN om_psector_selector ON om_psector.psector_id=om_psector_selector.psector_id
      JOIN om_psector_cat_type ON om_psector_cat_type.id = om_psector.psector_type
@@ -233,7 +233,7 @@ UNION
 	om_psector.active,
     om_reh_result_arc.the_geom
    FROM selector_expl, selector_state, om_reh_result_arc
-     JOIN om_psector_x_arc ON om_psector_x_arc.arc_id::text = om_reh_result_arc.arc_id::text
+     JOIN om_psector_x_arc ON om_psector_x_arc.arc_id = om_reh_result_arc.arc_id
      JOIN om_psector ON om_psector.psector_id = om_psector_x_arc.psector_id
      JOIN om_psector_selector ON om_psector.psector_id=om_psector_selector.psector_id
      JOIN om_psector_cat_type ON om_psector_cat_type.id = om_psector.psector_type

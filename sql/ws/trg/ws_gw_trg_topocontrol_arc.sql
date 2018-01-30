@@ -150,7 +150,7 @@ BEGIN
 				IF TG_OP = 'UPDATE' THEN
 	
 					-- Select arcs with start-end on the updated node
-					FOR vnoderec IN SELECT * FROM vnode JOIN link ON vnode_id::text=exit_id WHERE exit_type='VNODE' 
+					FOR vnoderec IN SELECT * FROM vnode JOIN link ON vnode_id=exit_id WHERE exit_type='VNODE' 
 					AND ST_DWithin(OLD.the_geom, vnode.the_geom, rec.vnode_update_tolerance) AND (userdefined_geom=false OR userdefined_geom is null)
 					LOOP
 							-- Update vnode geometry

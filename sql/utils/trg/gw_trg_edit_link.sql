@@ -314,9 +314,9 @@ BEGIN
     ELSIF TG_OP = 'DELETE' THEN
 	
 		IF OLD.exit_type='VNODE' THEN
-			SELECT count (*) INTO count_int FROM vnode WHERE vnode_id::text=OLD.exit_id;
+			SELECT count (*) INTO count_int FROM vnode WHERE vnode_id=OLD.exit_id;
 			IF count_int = 1 THEN	
-				DELETE FROM vnode WHERE vnode_id::text=OLD.exit_id;
+				DELETE FROM vnode WHERE vnode_id=OLD.exit_id;
 			END IF;
 		END IF;
 		

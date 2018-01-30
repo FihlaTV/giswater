@@ -59,8 +59,8 @@ CREATE OR REPLACE VIEW sanejament.v_edit_man_conduit AS
     startdate::date as index_date
    FROM sanejament.arc
      LEFT JOIN sanejament.cat_arc ON arc.arccat_id::text = cat_arc.id::text
-     LEFT JOIN sanejament.v_arc_x_node ON v_arc_x_node.arc_id::text = arc.arc_id::text
-     JOIN sanejament.man_conduit ON man_conduit.arc_id::text = arc.arc_id::text
+     LEFT JOIN sanejament.v_arc_x_node ON v_arc_x_node.arc_id = arc.arc_id
+     JOIN sanejament.man_conduit ON man_conduit.arc_id = arc.arc_id
      LEFT JOIN sanejament.om_visit_x_arc ON om_visit_x_arc.arc_id=arc.arc_id 
      LEFT JOIN sanejament.om_visit ON visit_id=om_visit.id
      WHERE is_last=true;

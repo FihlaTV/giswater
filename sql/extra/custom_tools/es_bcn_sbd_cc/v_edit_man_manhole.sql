@@ -44,7 +44,7 @@ CREATE OR REPLACE VIEW sanejament.v_edit_man_manhole AS
     index_gen,
     startdate::date as index_date
    FROM sanejament.node
-     JOIN sanejament.man_manhole ON man_manhole.node_id::text = node.node_id::text
+     JOIN sanejament.man_manhole ON man_manhole.node_id = node.node_id
      LEFT JOIN sanejament.om_visit_x_node ON om_visit_x_node.node_id=node.node_id
      LEFT JOIN sanejament.om_visit ON visit_id=om_visit.id
      WHERE is_last=true

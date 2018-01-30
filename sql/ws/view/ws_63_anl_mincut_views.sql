@@ -20,7 +20,7 @@ CREATE OR REPLACE VIEW v_anl_mincut_selected_valve AS
  man_valve.broken,
  the_geom
  FROM v_edit_man_valve
-     JOIN man_valve ON v_edit_man_valve.node_id::text = man_valve.node_id::text
+     JOIN man_valve ON v_edit_man_valve.node_id = man_valve.node_id
      JOIN anl_mincut_selector_valve ON nodetype_id::text = anl_mincut_selector_valve.id::text;
 
 
@@ -42,7 +42,7 @@ anl_mincut_result_cat.work_order,
 anl_mincut_result_arc.arc_id,
 arc.the_geom
 FROM anl_mincut_result_selector, arc 
-JOIN anl_mincut_result_arc ON anl_mincut_result_arc.arc_id::text = arc.arc_id::text
+JOIN anl_mincut_result_arc ON anl_mincut_result_arc.arc_id = arc.arc_id
 JOIN anl_mincut_result_cat ON anl_mincut_result_arc.result_id=anl_mincut_result_cat.id
 	WHERE anl_mincut_result_selector.result_id::text = anl_mincut_result_arc.result_id::text AND anl_mincut_result_selector.cur_user = "current_user"()::text
 	ORDER BY anl_mincut_result_arc.arc_id;

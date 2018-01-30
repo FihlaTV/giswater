@@ -20,8 +20,8 @@ node_2,
 st_x(b.the_geom) AS x2,
 st_y(b.the_geom) AS y2
 FROM v_arc
-LEFT JOIN node a ON a.node_id::text = v_arc.node_1::text
-LEFT JOIN node b ON b.node_id::text = v_arc.node_2::text;
+LEFT JOIN node a ON a.node_id = v_arc.node_1::text
+LEFT JOIN node b ON b.node_id = v_arc.node_2::text;
 
 
 

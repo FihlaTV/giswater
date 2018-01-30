@@ -14,7 +14,7 @@ CREATE OR REPLACE VIEW gw_saa.v_daescs_connec_search AS
     vw_daecom_endereco.cod_rua AS code_street,
     vw_daecom_endereco.numero AS num_portal
    FROM gw_saa.connec
-     JOIN gw_saa.rtc_hydrometer_x_connec ON rtc_hydrometer_x_connec.connec_id::text = connec.connec_id::text
+     JOIN gw_saa.rtc_hydrometer_x_connec ON rtc_hydrometer_x_connec.connec_id = connec.connec_id
      JOIN vw_daecom_endereco ON rtc_hydrometer_x_connec.hydrometer_id::text = vw_daecom_endereco.cod_dae::text;
 
 

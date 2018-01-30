@@ -75,7 +75,7 @@ inp_demand.demand,
 inp_demand.pattern_id,
 inp_demand.deman_type
 FROM inp_selector_dscenario, inp_selector_result, inp_demand
-   JOIN rpt_inp_node ON inp_demand.node_id::text = rpt_inp_node.node_id::text
+   JOIN rpt_inp_node ON inp_demand.node_id = rpt_inp_node.node_id
    WHERE inp_selector_dscenario.dscenario_id = inp_demand.dscenario_id AND inp_selector_dscenario.cur_user = "current_user"()::text
    AND inp_selector_result.result_id=rpt_inp_node.result_id AND inp_selector_result.cur_user = "current_user"()::text;
 	
@@ -206,7 +206,7 @@ SELECT
 rpt_inp_arc.arc_id,
 inp_pump_additional.status
 FROM inp_selector_result, rpt_inp_arc
-    JOIN inp_pump_additional ON rpt_inp_arc.arc_id::text = concat(inp_pump_additional.node_id, '_n2a', inp_pump_additional.order_id)
+    JOIN inp_pump_additional ON rpt_inp_arc.arc_id = concat(inp_pump_additional.node_id, '_n2a', inp_pump_additional.order_id)
 	WHERE inp_pump_additional.status::text = 'OPEN'::text OR inp_pump_additional.status::text = 'CLOSED'::text
 	AND rpt_inp_arc.result_id=inp_selector_result.result_id AND inp_selector_result.cur_user="current_user"();
 

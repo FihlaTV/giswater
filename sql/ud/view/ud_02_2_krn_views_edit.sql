@@ -374,9 +374,9 @@ CREATE OR REPLACE VIEW v_edit_link AS
     link.userdefined_geom,
     link.the_geom
    FROM selector_expl,    selector_state,    link
-     LEFT JOIN connec ON link.feature_id::text = connec.connec_id::text AND link.feature_type::text = 'CONNEC'::text
-     LEFT JOIN gully ON link.feature_id::text = gully.gully_id::text AND link.feature_type::text = 'GULLY'::text
-     LEFT JOIN vnode ON link.feature_id::text = vnode.vnode_id::text AND link.feature_type::text = 'VNODE'::text
+     LEFT JOIN connec ON link.feature_id::text = connec.connec_id AND link.feature_type::text = 'CONNEC'::text
+     LEFT JOIN gully ON link.feature_id::text = gully.gully_id AND link.feature_type::text = 'GULLY'::text
+     LEFT JOIN vnode ON link.feature_id::text = vnode.vnode_id AND link.feature_type::text = 'VNODE'::text
   WHERE link.expl_id = selector_expl.expl_id AND selector_expl.cur_user = "current_user"()::text 
   AND link.state = selector_state.state_id AND selector_state.cur_user = "current_user"()::text;
 

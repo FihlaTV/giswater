@@ -81,7 +81,7 @@ CREATE OR REPLACE VIEW v_ui_node_x_connection_downstream AS
     st_x(st_lineinterpolatepoint(v_edit_arc.the_geom, 0.5::double precision)) AS x,
     st_y(st_lineinterpolatepoint(v_edit_arc.the_geom, 0.5::double precision)) AS y
    FROM v_edit_arc
-     JOIN node ON v_edit_arc.node_1::text = node.node_id::text
+     JOIN node ON v_edit_arc.node_1::text = node.node_id
      JOIN arc_type ON arc_type.id::text = v_edit_arc.arc_type::text;
 
 
@@ -105,12 +105,12 @@ CREATE OR REPLACE VIEW "v_ui_node_x_connection_upstream" AS
     st_x(st_lineinterpolatepoint(v_edit_arc.the_geom, 0.5::double precision)) AS x,
     st_y(st_lineinterpolatepoint(v_edit_arc.the_geom, 0.5::double precision)) AS y
    FROM v_edit_arc
-     JOIN node ON v_edit_arc.node_2::text = node.node_id::text
+     JOIN node ON v_edit_arc.node_2::text = node.node_id
      JOIN arc_type ON arc_type.id::text = v_edit_arc.arc_type::text
 UNION
  SELECT row_number() OVER (ORDER BY node.node_id)+2000000 AS rid,
     node.node_id,
-    link.link_id::text AS feature_id,
+    link.link_id AS feature_id,
     NULL::character varying AS feature_code,
     v_edit_connec.connec_type AS featurecat_id,
     v_edit_connec.connecat_id AS arccat_id,
@@ -124,13 +124,13 @@ UNION
     st_x(v_edit_connec.the_geom) AS x,
     st_y(v_edit_connec.the_geom) AS y
    FROM v_edit_connec
-     JOIN link ON link.feature_id::text = v_edit_connec.connec_id::text AND link.feature_type::text = v_edit_connec.connec_type::text
-     JOIN node ON link.exit_id::text = node.node_id::text AND link.exit_type::text = 'NODE'::text
+     JOIN link ON link.feature_id::text = v_edit_connec.connec_id AND link.feature_type::text = v_edit_connec.connec_type::text
+     JOIN node ON link.exit_id::text = node.node_id AND link.exit_type::text = 'NODE'::text
      JOIN connec_type ON connec_type.id::text = v_edit_connec.connec_type::text
 UNION
  SELECT row_number() OVER (ORDER BY node.node_id)+3000000 AS rid,
     node.node_id,
-    link.link_id::text AS feature_id,
+    link.link_id AS feature_id,
     NULL::character varying AS feature_code,
     v_edit_gully.gully_type AS featurecat_id,
     v_edit_gully.connec_arccat_id AS arccat_id,
@@ -144,8 +144,8 @@ UNION
     st_x(v_edit_gully.the_geom) AS x,
     st_y(v_edit_gully.the_geom) AS y
    FROM v_edit_gully
-     JOIN link ON link.feature_id::text = v_edit_gully.gully_id::text AND link.feature_type::text = v_edit_gully.gully_type::text
-     JOIN node ON link.exit_id::text = node.node_id::text AND link.exit_type::text = 'NODE'::text
+     JOIN link ON link.feature_id::text = v_edit_gully.gully_id AND link.feature_type::text = v_edit_gully.gully_type::text
+     JOIN node ON link.exit_id::text = node.node_id AND link.exit_type::text = 'NODE'::text
      JOIN gully_type ON gully_type.id::text = v_edit_gully.gully_type::text;
 
 	 

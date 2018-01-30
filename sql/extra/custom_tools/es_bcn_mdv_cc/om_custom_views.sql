@@ -152,7 +152,7 @@ CREATE OR REPLACE VIEW SCHEMA_NAME.v_om_visit_node AS
           WHERE om_visit_event_1.tstamp > ('now'::text::date - '30 days'::interval)
           GROUP BY om_visit_x_node.node_id
           ORDER BY om_visit_x_node.node_id, max(om_visit_event_1.tstamp)) a ON a.max_tstamp = om_visit_event.tstamp
-     RIGHT JOIN SCHEMA_NAME.node ON node.node_id::text = a.node_id::text
+     RIGHT JOIN SCHEMA_NAME.node ON node.node_id = a.node_id
   ORDER BY om_visit_event.cleaned;
 
 
@@ -170,7 +170,7 @@ SELECT DISTINCT ON (gully.gully_id)
     gully.the_geom
    FROM SCHEMA_NAME.om_visit
      JOIN SCHEMA_NAME.om_visit_x_gully ON om_visit.id = om_visit_x_gully.visit_id
-     JOIN SCHEMA_NAME.gully ON gully.gully_id::text = om_visit_x_gully.gully_id::text
+     JOIN SCHEMA_NAME.gully ON gully.gully_id = om_visit_x_gully.gully_id
      JOIN ( select visit_id, parameter_id, text, observ FROM SCHEMA_NAME.om_visit_event ) a ON a.visit_id = om_visit.id;
 
 
@@ -188,7 +188,7 @@ SELECT DISTINCT ON (node.node_id)
     node.the_geom
    FROM SCHEMA_NAME.om_visit
      JOIN SCHEMA_NAME.om_visit_x_node ON om_visit.id = om_visit_x_node.visit_id
-     JOIN SCHEMA_NAME.node ON node.node_id::text = om_visit_x_node.node_id::text
+     JOIN SCHEMA_NAME.node ON node.node_id = om_visit_x_node.node_id
      JOIN ( select visit_id, parameter_id, text, observ FROM SCHEMA_NAME.om_visit_event ) a ON a.visit_id = om_visit.id;
 
 

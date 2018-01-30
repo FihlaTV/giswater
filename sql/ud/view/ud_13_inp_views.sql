@@ -1007,7 +1007,7 @@ inp_pump.status,
 inp_pump.startup,
 inp_pump.shutoff
 FROM inp_selector_result, rpt_inp_arc 
-	JOIN inp_pump ON rpt_inp_arc.arc_id::text = inp_pump.arc_id::text	
+	JOIN inp_pump ON rpt_inp_arc.arc_id = inp_pump.arc_id	
 	WHERE rpt_inp_arc.result_id=inp_selector_result.result_id AND inp_selector_result.cur_user="current_user"()
 UNION
 SELECT 
