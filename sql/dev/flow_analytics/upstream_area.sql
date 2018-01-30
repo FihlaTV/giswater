@@ -33,7 +33,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS node_drain_area CASCADE;
 	CREATE TABLE node_drain_area
 	(
-		node_id character varying(16) NOT NULL,
+		node_id varchar(16) NOT NULL,
 		area numeric(12,4) DEFAULT -1.00,
 		capacity numeric(12,4) DEFAULT 0.00,
 		num_outlet integer DEFAULT 0,
@@ -52,7 +52,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS arc_drain_area CASCADE;
 	CREATE TABLE arc_drain_area
 	(
-		arc_id character varying(16) NOT NULL,
+		arc_id varchar(16) NOT NULL,
 		area numeric(12,4) DEFAULT 0.00,
 		capacity numeric(12,4) DEFAULT 0.00,
 		CONSTRAINT arc_area_pkey PRIMARY KEY (arc_id),
@@ -68,7 +68,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS temp_contributing_area CASCADE;
 	CREATE TEMP TABLE temp_contributing_area
 	(		
-		node_id character varying(16) NOT NULL,
+		node_id varchar(16) NOT NULL,
 		first_track_id integer DEFAULT 0,
 		total_capacity numeric(12,4) DEFAULT 0.00,
 		CONSTRAINT temp_area_pkey PRIMARY KEY (node_id)
@@ -79,7 +79,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS node_cycles CASCADE;
 	CREATE TABLE node_cycles
 	(		
-		node_id character varying(16) NOT NULL,
+		node_id varchar(16) NOT NULL,
 		cycle_id integer DEFAULT 0,
 		CONSTRAINT cycles_pkey PRIMARY KEY (node_id)
 	);

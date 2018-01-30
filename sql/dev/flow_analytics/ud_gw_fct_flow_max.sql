@@ -32,7 +32,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS temp_maxflow CASCADE;
 	CREATE TEMP TABLE temp_maxflow
 	(		
-		node_id character varying(16) NOT NULL,
+		node_id varchar(16) NOT NULL,
 		maxflow numeric(12,4) DEFAULT 0.00,
 		first_track_id integer DEFAULT 0,
 		total_capacity numeric(12,4) DEFAULT 0.00,

@@ -352,7 +352,7 @@ CREATE TABLE "inp_pump" (
 "speed" numeric(12,6),
 "pattern" varchar,
 "status" character varying(12),
-"to_arc" character varying(16)
+"to_arc" varchar(16)
  );
 
 
@@ -561,7 +561,7 @@ CREATE TABLE "inp_value_opti_valvemode" (
 
 
 CREATE TABLE "inp_value_opti_rtc_coef" (
-"id" character varying(16) NOT NULL PRIMARY KEY,
+"id" varchar(16) NOT NULL PRIMARY KEY,
 "observ" text
 );
 

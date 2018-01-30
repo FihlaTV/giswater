@@ -32,7 +32,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS arc_maxflow CASCADE;
 	CREATE TABLE arc_maxflow
 	(
-		arc_id character varying(16) NOT NULL,
+		arc_id varchar(16) NOT NULL,
 		maxflow numeric(12,4) DEFAULT 0.00,
 		CONSTRAINT arc_maxflow_pkey PRIMARY KEY (arc_id),
 		CONSTRAINT arc_maxflow_arc_id_fkey FOREIGN KEY (arc_id)
@@ -47,7 +47,7 @@ SET search_path='SCHEMA_NAME',public;
 	DROP TABLE IF EXISTS temp_maxflow CASCADE;
 	CREATE TEMP TABLE temp_maxflow
 	(		
-		node_id character varying(16) NOT NULL,
+		node_id varchar(16) NOT NULL,
 		maxflow numeric(12,4) DEFAULT 0.00,
 		first_track_id integer DEFAULT 0,
 		total_capacity numeric(12,4) DEFAULT 0.00,

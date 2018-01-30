@@ -1365,7 +1365,7 @@ CREATE TABLE "inp_value_yesno" (
 -- --------------------------
 
 CREATE TABLE "inp_flwreg_type"(
-id character varying(16),
+id varchar(16),
 table_id character varying(50),
 CONSTRAINT inp_inp_flwreg_type_pkey PRIMARY KEY (id)
 );

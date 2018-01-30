@@ -367,7 +367,7 @@ tstamp timestamp DEFAULT now()
 
 
 CREATE TABLE polygon(
-pol_id character varying(16) NOT NULL PRIMARY KEY,
+pol_id varchar(16) NOT NULL PRIMARY KEY,
 sys_type varchar(30),
 text text,
 the_geom geometry(POLYGON,SRID_VALUE),
@@ -480,7 +480,7 @@ CREATE TABLE "value_yesno" (
 
 
 CREATE TABLE value_priority (
-id character varying(16) NOT NULL PRIMARY KEY,
+id varchar(16) NOT NULL PRIMARY KEY,
 observ character varying(254)
 );
 

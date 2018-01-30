@@ -172,9 +172,9 @@ CREATE TABLE "cat_connec" (
 "brand" varchar(30)  ,
 "model" varchar(30)  ,
 "svg" varchar(50)  ,
-"cost_ut" character varying(16),
-"cost_ml" character varying(16),
-"cost_m3" character varying(16),
+"cost_ut" varchar(16),
+"cost_ml" varchar(16),
+"cost_m3" varchar(16),
 "active" boolean,
 CONSTRAINT cat_connec_pkey PRIMARY KEY (id)
 );
@@ -197,7 +197,7 @@ CREATE TABLE "cat_grate" (
 "brand" varchar(30)  ,
 "model" varchar(30)  ,
 "svg" varchar(50)  ,
-"cost_ut" character varying(16),
+"cost_ut" varchar(16),
 "active" boolean,
 CONSTRAINT cat_grate_pkey PRIMARY KEY (id)
 );
@@ -428,7 +428,7 @@ CREATE TABLE "connec" (
 "the_geom" public.geometry (POINT, SRID_VALUE),
 "undelete" boolean,
 "featurecat_id" character varying(50),
-"feature_id" character varying(16),
+"feature_id" varchar(16),
 "label_x" character varying(30),
 "label_y" character varying(30),
 "label_rotation" numeric(6,3),
@@ -496,7 +496,7 @@ CREATE TABLE "gully" (
 "the_geom" public.geometry (POINT, SRID_VALUE),
 "undelete" boolean,
 "featurecat_id" character varying(50),
-"feature_id" character varying(16),
+"feature_id" varchar(16),
 "label_x" character varying(30),
 "label_y" character varying(30),
 "label_rotation" numeric(6,3),
@@ -513,7 +513,7 @@ CONSTRAINT gully_pkey PRIMARY KEY (gully_id)
 
   
 CREATE TABLE "samplepoint"(
-"sample_id" character varying(16) DEFAULT nextval('"SCHEMA_NAME".sample_id_seq'::regclass) NOT NULL,
+"sample_id" varchar(16) DEFAULT nextval('"SCHEMA_NAME".sample_id_seq'::regclass) NOT NULL,
 "code" varchar(30) ,
 "lab_code" varchar(30),
 "feature_id" varchar (16),
@@ -608,7 +608,7 @@ CREATE TABLE "man_netelement" (
 
 CREATE TABLE "man_netgully" (
 "node_id" varchar(16) NOT NULL PRIMARY KEY,
-"pol_id" character varying(16),
+"pol_id" varchar(16),
 "sander_depth" numeric(12,4),
 "gratecat_id" varchar(18)  ,
 "units" int2,
@@ -619,7 +619,7 @@ CREATE TABLE "man_netgully" (
 
 CREATE TABLE "man_chamber" (
 "node_id" varchar(16) NOT NULL PRIMARY KEY,
-"pol_id" character varying(16),
+"pol_id" varchar(16),
 "length" numeric(12,3),
 "width" numeric(12,3),
 "sander_depth" numeric(12,3),
@@ -634,7 +634,7 @@ CREATE TABLE "man_chamber" (
 
 CREATE TABLE "man_storage" (
 "node_id" varchar(16) NOT NULL PRIMARY KEY,
-"pol_id" character varying(16),
+"pol_id" varchar(16),
 "length" numeric(12,3),
 "width" numeric(12,3),
 "custom_area" numeric (12,3),
@@ -648,7 +648,7 @@ CREATE TABLE "man_storage" (
 
 CREATE TABLE "man_wwtp" (
 "node_id" varchar(16) NOT NULL PRIMARY KEY,
-"pol_id" character varying(16),
+"pol_id" varchar(16),
 "name" varchar(255)
 );
 
@@ -672,7 +672,7 @@ CREATE TABLE "man_waccel" (
 );
 
 CREATE TABLE "man_varc"(
-"arc_id" character varying(16) NOT NULL PRIMARY KEY
+"arc_id" varchar(16) NOT NULL PRIMARY KEY
 );
 
 

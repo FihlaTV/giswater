@@ -98,7 +98,7 @@ the_geom public.geometry (LINESTRING, SRID_VALUE)
 CREATE TABLE IF NOT EXISTS "anl_mincut_result_connec" (
 id serial NOT NULL PRIMARY KEY,
 result_id integer,
-connec_id character varying(16) NOT NULL,
+connec_id varchar(16) NOT NULL,
 the_geom public.geometry (POINT, SRID_VALUE)
 );
 
@@ -106,21 +106,21 @@ the_geom public.geometry (POINT, SRID_VALUE)
 CREATE TABLE IF NOT EXISTS "anl_mincut_result_hydrometer" (
 id serial NOT NULL PRIMARY KEY,
 result_id integer,
-hydrometer_id character varying(16) NOT NULL
+hydrometer_id varchar(16) NOT NULL
 );
 
 
 CREATE TABLE "anl_mincut_result_valve_unaccess"(
 id serial NOT NULL PRIMARY KEY,
 result_id integer,
-node_id character varying(16) NOT NULL
+node_id varchar(16) NOT NULL
 );
 
 
 CREATE TABLE IF NOT EXISTS "anl_mincut_result_valve" (
 id serial NOT NULL PRIMARY KEY,
 result_id integer,
-node_id character varying(16),
+node_id varchar(16),
 closed boolean,
 broken boolean,
 unaccess boolean,

@@ -157,10 +157,10 @@ cur_user text
 CREATE TABLE "audit_log_arc_traceability" (
 id serial PRIMARY KEY NOT NULL,
 type character varying(50),
-arc_id character varying(16),
-arc_id1 character varying(16),
-arc_id2 character varying(16),
-node_id character varying(16),
+arc_id varchar(16),
+arc_id1 varchar(16),
+arc_id2 varchar(16),
+node_id varchar(16),
 tstamp timestamp(6) without time zone,
 "user" character varying(50)
 );
@@ -381,9 +381,9 @@ CREATE TABLE audit_log_data (
 CREATE TABLE audit_log_feature (
   id serial NOT NULL PRIMARY KEY,
   fprocesscat_id smallint,
-  feature_type character varying(16),
+  feature_type varchar(16),
   log_message text,
-  feature_id character varying(16),
+  feature_id varchar(16),
   code character varying(30),
   state smallint,
   state_type smallint,

@@ -97,8 +97,8 @@ CREATE TABLE "plan_psector_x_other" (
 
 CREATE TABLE "plan_arc_x_pavement" (
 "id" serial NOT NULL PRIMARY KEY,
-"arc_id" character varying(16),
-"pavcat_id" character varying(16),
+"arc_id" varchar(16),
+"pavcat_id" varchar(16),
 "percent" numeric (3,2)
 );
 
@@ -123,31 +123,31 @@ CREATE TABLE price_cat_simple (
 
 
 CREATE TABLE audit_price_simple (
-  id character varying(16) PRIMARY KEY NOT NULL,
+  id varchar(16) PRIMARY KEY NOT NULL,
   pricecat_id varchar(16),
   unit character varying(5),
   descript character varying(100),
   text text,
   price numeric(12,4),
-  obs character varying(16),
+  obs varchar(16),
   tstamp timestamp default now(),
   cur_user text
 );
 
 
 CREATE TABLE price_simple (
-  id character varying(16) PRIMARY KEY NOT NULL,
+  id varchar(16) PRIMARY KEY NOT NULL,
   pricecat_id varchar(16),
   unit character varying(5),
   descript character varying(100),
   text text,
   price numeric(12,4),
-  obs character varying(16)
+  obs varchar(16)
 );
 
 
 CREATE TABLE price_compost (
-  id character varying(16) PRIMARY KEY NOT NULL,
+  id varchar(16) PRIMARY KEY NOT NULL,
   unit character varying(5),
   descript character varying(100),
   text text,
@@ -157,14 +157,14 @@ CREATE TABLE price_compost (
 
 CREATE TABLE price_compost_value (
   id serial PRIMARY KEY NOT NULL,
-  compost_id character varying(16),
-  simple_id character varying(16),
+  compost_id varchar(16),
+  simple_id varchar(16),
   value numeric (16,4)
 );
 
 
 CREATE TABLE price_value_unit (
-  id character varying(16) PRIMARY KEY NOT NULL,
+  id varchar(16) PRIMARY KEY NOT NULL,
   descript character varying(100)
 );
 

@@ -13,7 +13,7 @@ SET search_path = "SCHEMA_NAME", public, pg_catalog;
 
 	
 CREATE TABLE review_arc(  
-arc_id character varying(16) NOT NULL PRIMARY KEY,
+arc_id varchar(16) NOT NULL PRIMARY KEY,
 y1 numeric(12,3),
 y2 numeric(12,3),
 arc_type character varying(18),
@@ -60,7 +60,7 @@ is_validated boolean
 
 
 CREATE TABLE review_node( 
-node_id character varying(16) NOT NULL PRIMARY KEY,
+node_id varchar(16) NOT NULL PRIMARY KEY,
 top_elev numeric(12,3),
 ymax numeric(12,3),
 node_type character varying(18),
@@ -78,7 +78,7 @@ field_checked boolean
 
 CREATE TABLE audit_review_node( 
 id serial PRIMARY KEY,
-node_id character varying(16) NOT NULL,
+node_id varchar(16) NOT NULL,
 old_top_elev numeric(12,3),
 new_top_elev numeric(12,3),
 old_ymax numeric(12,3),
@@ -109,7 +109,7 @@ is_validated boolean
   
 
 CREATE TABLE review_connec( 
-connec_id character varying(16) NOT NULL PRIMARY KEY,
+connec_id varchar(16) NOT NULL PRIMARY KEY,
 y1 numeric(12,3),
 y2 numeric(12,3),
 arc_type character varying(18),
@@ -127,7 +127,7 @@ field_checked boolean
  
 CREATE TABLE audit_review_connec( 
 id serial PRIMARY KEY,
-connec_id character varying(16) NOT NULL,
+connec_id varchar(16) NOT NULL,
 old_y1 numeric(12,3),
 new_y1 numeric(12,3),
 old_y2 numeric(12,3),
@@ -157,7 +157,7 @@ is_validated boolean
  
 
 CREATE TABLE review_gully( 
-gully_id character varying(16) NOT NULL PRIMARY KEY,
+gully_id varchar(16) NOT NULL PRIMARY KEY,
 top_elev numeric(12,3),
 ymax numeric(12,3),
 sandbox numeric(12,3),
@@ -171,7 +171,7 @@ shape character varying(30),
 geom1 numeric(12,3),
 geom2 numeric(12,3),
 featurecat_id character varying(50),
-feature_id character varying(16),
+feature_id varchar(16),
 annotation character varying(254),
 observ character varying(254),
 expl_id integer,
@@ -183,7 +183,7 @@ field_checked boolean
 
 CREATE TABLE audit_review_gully( 
 id serial PRIMARY KEY,
-gully_id character varying(16) NOT NULL,
+gully_id varchar(16) NOT NULL,
 old_top_elev numeric(12,3),
 new_top_elev numeric(12,3),
 old_ymax numeric(12,3),
@@ -210,8 +210,8 @@ old_geom2 numeric(12,3),
 new_geom2 numeric(12,3),
 old_featurecat_id character varying(50),
 new_featurecat_id character varying(50),
-old_feature_id character varying(16),
-new_feature_id character varying(16),
+old_feature_id varchar(16),
+new_feature_id varchar(16),
 annotation character varying(254),
 observ character varying(254),
 expl_id integer,

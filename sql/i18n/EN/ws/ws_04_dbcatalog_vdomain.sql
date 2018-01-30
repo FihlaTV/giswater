@@ -600,7 +600,7 @@ INSERT INTO db_cat_table_x_column VALUES ('node_depth', 'node', 'depth', 'Numeri
 INSERT INTO db_cat_table_x_column VALUES ('node_nodecat_id', 'node', 'nodecat_id', 'varchar(30)', 'Node catalog identifier related to the primary key of cat_node table');
 INSERT INTO db_cat_table_x_column VALUES ('node_epa_type', 'node', 'epa_type', 'varchar(16)', 'EPANET behaviour of the node.');
 INSERT INTO db_cat_table_x_column VALUES ('node_sector_id', 'node', 'sector_id', 'varchar(30)', 'Hydraulic sector identifier related to the primary key of sector table');
-INSERT INTO db_cat_table_x_column VALUES ('node_state', 'node', 'state', 'character varying(16)', 'Domain value of node''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('node_state', 'node', 'state', 'varchar(16)', 'Domain value of node''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('node_annotation', 'node', 'annotation', 'character varying(254)', 'Annotations related to node. Additional information.');
 INSERT INTO db_cat_table_x_column VALUES ('node_observ', 'node', 'observ', 'character varying (254)', 'Observations related to node. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('node_comment', 'node', 'comment', 'character varying (254)', 'Comments related to node. Additional information');
@@ -625,7 +625,7 @@ INSERT INTO db_cat_table_x_column VALUES ('arc_arc_id', 'arc', 'arc_id', 'varcha
 INSERT INTO db_cat_table_x_column VALUES ('arc_node_1', 'arc', 'node_1', 'varchar(16)', 'Node located at the beginning of the arc.');
 INSERT INTO db_cat_table_x_column VALUES ('arc_sector_id', 'arc', 'sector_id', 'varchar(30)', 'Hydraulic sector identifier related to the primary key of sector table');
 INSERT INTO db_cat_table_x_column VALUES ('arc_epa_type', 'arc', 'epa_type', 'varchar(16)', 'EPANET behaviour of the arc. (pipe or undefined)');
-INSERT INTO db_cat_table_x_column VALUES ('arc_state', 'arc', 'state', 'character varying(16)', 'Domain value of arc''s state (on service, planified, obsolete)');
+INSERT INTO db_cat_table_x_column VALUES ('arc_state', 'arc', 'state', 'varchar(16)', 'Domain value of arc''s state (on service, planified, obsolete)');
 INSERT INTO db_cat_table_x_column VALUES ('arc_annotation', 'arc', 'annotation', 'character varying(254)', 'Annotations related to arc. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('arc_observ', 'arc', 'observ', 'character varying (254)', 'Observations related to arc. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('arc_comment', 'arc', 'comment', 'character varying (254)', 'Comments related to arc. Additional information');
@@ -661,7 +661,7 @@ INSERT INTO db_cat_table_x_column VALUES ('connec_sector_id', 'connec', 'sector_
 INSERT INTO db_cat_table_x_column VALUES ('connec_code', 'connec', 'code', 'varchar(30)', 'Code of the connec from the comercial database or something equivalent');
 INSERT INTO db_cat_table_x_column VALUES ('connec_n_hydrometer', 'connec', 'n_hydrometer', 'int4,', 'Number of hydrometers related to the connec (From 1 to n).');
 INSERT INTO db_cat_table_x_column VALUES ('connec_demand', 'connec', 'demand', 'Numeric(12,8)', 'Demand for water by the main category of consumer. Measured in the current flow units');
-INSERT INTO db_cat_table_x_column VALUES ('connec_state', 'connec', 'state', 'character varying(16)', 'Domain value of connect''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('connec_state', 'connec', 'state', 'varchar(16)', 'Domain value of connect''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('connec_annotation', 'connec', 'annotation', 'character varying(254)', 'Annotations related to connect. Additional information.');
 INSERT INTO db_cat_table_x_column VALUES ('connec_observ', 'connec', 'observ', 'character varying (254)', 'Observations related to connect. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('connec_comment', 'connec', 'comment', 'character varying (254)', 'Comments related to connect. Additional information');

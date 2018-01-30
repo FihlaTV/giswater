@@ -109,9 +109,9 @@ CREATE TABLE "cat_connec" (
 "brand" varchar(30)  ,
 "model" varchar(30)  ,
 "svg" varchar(50),
-"cost_ut" character varying(16),
-"cost_ml" character varying(16),
-"cost_m3" character varying(16),
+"cost_ut" varchar(16),
+"cost_ml" varchar(16),
+"cost_m3" varchar(16),
 "active" boolean,
 CONSTRAINT cat_connec_pkey PRIMARY KEY (id)
 );
@@ -328,8 +328,8 @@ CONSTRAINT connec_pkey PRIMARY KEY (connec_id)
 
 
 CREATE TABLE "pond"(
-"pond_id" character varying(16),
-"connec_id" character varying(16),
+"pond_id" varchar(16),
+"connec_id" varchar(16),
 "dma_id" integer,
 "state" int2,
 "the_geom" geometry(Point,SRID_VALUE),
@@ -340,8 +340,8 @@ CONSTRAINT man_pond_pkey PRIMARY KEY (pond_id)
 
 
 CREATE TABLE "pool"(
-"pool_id" character varying(16),
-"connec_id" character varying(16),
+"pool_id" varchar(16),
+"connec_id" varchar(16),
 "dma_id" integer,
 "state" int2,
 "the_geom" geometry(Point,SRID_VALUE),
@@ -353,7 +353,7 @@ CONSTRAINT man_pool_pkey PRIMARY KEY (pool_id)
 
   
 CREATE TABLE "samplepoint"(
-"sample_id" character varying(16) DEFAULT nextval('"SCHEMA_NAME".sample_id_seq'::regclass) NOT NULL,
+"sample_id" varchar(16) DEFAULT nextval('"SCHEMA_NAME".sample_id_seq'::regclass) NOT NULL,
 "code" varchar(30) ,
 "lab_code" varchar(30),
 "feature_id" varchar (16),
@@ -420,8 +420,8 @@ CREATE TABLE "man_valve" (
 "node_id" varchar(16) NOT NULL,
 "closed" boolean DEFAULT false,
 "broken" boolean DEFAULT false,
-"buried" character varying(16),
-"irrigation_indicator" character varying(16),
+"buried" varchar(16),
+"irrigation_indicator" varchar(16),
 "pression_entry" numeric(12,3),
 "pression_exit" numeric(12,3),
 "depth_valveshaft" numeric(12,3),
@@ -471,26 +471,26 @@ CONSTRAINT man_pipe_pkey PRIMARY KEY (arc_id)
 );
 
   CREATE TABLE "man_manhole"(
-"node_id" character varying(16) NOT NULL,
+"node_id" varchar(16) NOT NULL,
 "name" varchar (50),
 CONSTRAINT man_manhole_pkey PRIMARY KEY (node_id)
 );
 
 CREATE TABLE "man_reduction"(
-"node_id" character varying(16) NOT NULL,
+"node_id" varchar(16) NOT NULL,
 "diam1" numeric(12,3),
 "diam2" numeric(12,3),
 CONSTRAINT man_reduction_pkey PRIMARY KEY (node_id)
   );
 
 CREATE TABLE "man_source"(
-"node_id" character varying(16) NOT NULL,
+"node_id" varchar(16) NOT NULL,
 "name" varchar (50),
 CONSTRAINT man_source_pkey PRIMARY KEY (node_id)
   );
   
 CREATE TABLE "man_waterwell"(
-"node_id" character varying(16) NOT NULL,
+"node_id" varchar(16) NOT NULL,
 "name" varchar (50),
 CONSTRAINT man_waterwell_pkey PRIMARY KEY (node_id)
 );
@@ -546,9 +546,9 @@ CONSTRAINT man_varc_pkey PRIMARY KEY (arc_id)
 
 
 CREATE TABLE "man_fountain"(
-"connec_id" character varying(16) NOT NULL,
-"pol_id" character varying(16),
-"linked_connec" character varying(16),
+"connec_id" varchar(16) NOT NULL,
+"pol_id" varchar(16),
+"linked_connec" varchar(16),
 "vmax" numeric(12,3),
 "vtotal" numeric(12,3),
 "container_number" integer,
@@ -563,15 +563,15 @@ CREATE TABLE "man_fountain"(
   
   
  CREATE TABLE "man_greentap"(
-"connec_id" character varying(16) NOT NULL,
-"linked_connec" character varying(16),
+"connec_id" varchar(16) NOT NULL,
+"linked_connec" varchar(16),
 CONSTRAINT man_greentap_pkey PRIMARY KEY (connec_id)
  );
   
   
 CREATE TABLE "man_tap"(
-"connec_id" character varying(16) NOT NULL,
-"linked_connec" character varying(16),
+"connec_id" varchar(16) NOT NULL,
+"linked_connec" varchar(16),
 "cat_valve" character varying(30),
 "drain_diam" numeric(12,3),
 "drain_exit" character varying(100),
@@ -584,7 +584,7 @@ CONSTRAINT man_tap_pkey PRIMARY KEY (connec_id)
   
   
 CREATE TABLE "man_wjoin"(
-"connec_id" character varying(16) NOT NULL,
+"connec_id" varchar(16) NOT NULL,
 "top_floor" integer,
 "cat_valve" character varying(30),
 CONSTRAINT man_wjoin_pkey PRIMARY KEY (connec_id)

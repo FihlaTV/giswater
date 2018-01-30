@@ -691,7 +691,7 @@ INSERT INTO db_cat_table_x_column VALUES ('node_node_type', 'node', 'node_type',
 INSERT INTO db_cat_table_x_column VALUES ('node_nodecat_id', 'node', 'nodecat_id', 'varchar(30)', 'Node catalog identifier related to the primary key of cat_node table');
 INSERT INTO db_cat_table_x_column VALUES ('node_epa_type', 'node', 'epa_type', 'varchar(16)', 'SWMM behaviour of the node.');
 INSERT INTO db_cat_table_x_column VALUES ('node_sector_id', 'node', 'sector_id', 'varchar(30)', 'Hydraulic sector identifier related to the primary key of sector table');
-INSERT INTO db_cat_table_x_column VALUES ('node_state', 'node', 'state', 'character varying(16)', 'Domain value of node''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('node_state', 'node', 'state', 'varchar(16)', 'Domain value of node''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('node_annotation', 'node', 'annotation', 'character varying(254)', 'Annotations related to node. Additional information.');
 INSERT INTO db_cat_table_x_column VALUES ('node_observ', 'node', 'observ', 'character varying(254)', 'Observations related to node. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('node_comment', 'node', 'comment', 'character varying(254)', 'Comments related to node. Additional information');
@@ -723,7 +723,7 @@ INSERT INTO db_cat_table_x_column VALUES ('arc_arc_type', 'arc', 'arc_type', 'va
 INSERT INTO db_cat_table_x_column VALUES ('arc_arccat_id', 'arc', 'arccat_id', 'varchar(30)', 'Arc catalog identifier related to the primary key of arc table.');
 INSERT INTO db_cat_table_x_column VALUES ('arc_epa_type', 'arc', 'epa_type', 'varchar(16)', 'ESWMM behaviour of the arc. (CONDUIT, PUMP, OIRIFICE, WEIR, OUTLET or UNDEFINED)');
 INSERT INTO db_cat_table_x_column VALUES ('arc_sector_id', 'arc', 'sector_id', 'varchar(30)', 'Hydraulic sector identifier related to the primary key of sector table');
-INSERT INTO db_cat_table_x_column VALUES ('arc_state', 'arc', 'state', 'character varying(16)', 'Domain value of arc''s state (on service, planified, obsolete)');
+INSERT INTO db_cat_table_x_column VALUES ('arc_state', 'arc', 'state', 'varchar(16)', 'Domain value of arc''s state (on service, planified, obsolete)');
 INSERT INTO db_cat_table_x_column VALUES ('arc_annotation', 'arc', 'annotation', 'character varying(254)', 'Annotations related to arc. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('arc_observ', 'arc', 'observ', 'character varying(254)', 'Observations related to arc. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('arc_comment', 'arc', 'comment', 'character varying(254)', 'Comments related to arc. Additional information');
@@ -765,7 +765,7 @@ INSERT INTO db_cat_table_x_column VALUES ('connec_sector_id', 'connec', 'sector_
 INSERT INTO db_cat_table_x_column VALUES ('connec_code', 'connec', 'code', 'Varchar(30)', 'Special code of the connec');
 INSERT INTO db_cat_table_x_column VALUES ('connec_n_hydrometer', 'connec', 'n_hydrometer', 'int4', 'Number of hydrometers related to the connec');
 INSERT INTO db_cat_table_x_column VALUES ('connec_demand', 'connec', 'demand', 'Numeric(12,8)', 'Water demand');
-INSERT INTO db_cat_table_x_column VALUES ('connec_state', 'connec', 'state', 'character varying(16)', 'Domain value of connect''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('connec_state', 'connec', 'state', 'varchar(16)', 'Domain value of connect''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('connec_annotation', 'connec', 'annotation', 'character varying(254)', 'Annotations related to connect. Additional information.');
 INSERT INTO db_cat_table_x_column VALUES ('connec_observ', 'connec', 'observ', 'character varying(254)', 'Observations related to connect. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('connec_comment', 'connec', 'comment', 'character varying(254)', 'Comments related to connect. Additional information');
@@ -794,7 +794,7 @@ INSERT INTO db_cat_table_x_column VALUES ('vnode_the_geom', 'vnode', 'the_geom',
 INSERT INTO db_cat_table_x_column VALUES ('vnode_userdefined_pos', 'vnode', 'userdefined_pos', 'boolean', 'Column to control when the user have moved the vnode (custom position, not automatic position). The goal of this control is dissable the posibility to ovewrite the vnode position.');
 INSERT INTO db_cat_table_x_column VALUES ('vnode_vnode_type', 'vnode', 'vnode_type', 'varchar(30)', 'Virtual node type.');
 INSERT INTO db_cat_table_x_column VALUES ('vnode_sector_id', 'vnode', 'sector_id', 'varchar(30)', 'Hydraulic sector identifier related to the primary key of sector table');
-INSERT INTO db_cat_table_x_column VALUES ('vnode_state', 'vnode', 'state', 'character varying(16)', 'Domain value of virtual node''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('vnode_state', 'vnode', 'state', 'varchar(16)', 'Domain value of virtual node''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('vnode_annotation', 'vnode', 'annotation', 'character varying(254)', 'Annotations related to virtual node. Additional information.');
 INSERT INTO db_cat_table_x_column VALUES ('link_link_id', 'link', 'link_id', 'varchar(16)', 'Link identifier. Primary key');
 INSERT INTO db_cat_table_x_column VALUES ('link_the_geom', 'link', 'the_geom', 'public.geometry', 'Linestring geometry field');
@@ -813,7 +813,7 @@ INSERT INTO db_cat_table_x_column VALUES ('gully_arccat_id', 'gully', 'arccat_id
 INSERT INTO db_cat_table_x_column VALUES ('gully_siphon', 'gully', 'siphon', 'varchar(3)', 'YES if gully has siphon in order to prevent salubrity problems with odours');
 INSERT INTO db_cat_table_x_column VALUES ('gully_arc_id', 'gully', 'arc_id', 'Varchar(16)', 'Arc identifier.');
 INSERT INTO db_cat_table_x_column VALUES ('gully_sector_id', 'gully', 'sector_id', 'varchar(30)', 'Hydraulic sector identifier related to the primary key of sector table');
-INSERT INTO db_cat_table_x_column VALUES ('gully_state', 'gully', 'state', 'character varying(16)', 'Domain value of gully''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('gully_state', 'gully', 'state', 'varchar(16)', 'Domain value of gully''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('gully_annotation', 'gully', 'annotation', 'character varying(254)', 'Annotations related to gully. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('gully_observ', 'gully', 'observ', 'character varying(254)', 'Observations related to gully. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('gully_comment', 'gully', 'comment', 'character varying(254)', 'Comments related to gully. Additional information');
@@ -841,7 +841,7 @@ INSERT INTO db_cat_table_x_column VALUES ('man_outfall_node_id', 'man_outfall', 
 INSERT INTO db_cat_table_x_column VALUES ('man_conduit_arc_id', 'man_conduit', 'arc_id', 'varchar(16)', 'Arc identifier.');
 INSERT INTO db_cat_table_x_column VALUES ('element_element_id', 'element', 'element_id', 'varchar(16)', 'Element identifier. Primary key');
 INSERT INTO db_cat_table_x_column VALUES ('element_elementcat_id', 'element', 'elementcat_id', 'varchar(30)', 'Element catalog identifier');
-INSERT INTO db_cat_table_x_column VALUES ('element_state', 'element', 'state', 'character varying(16)', 'Domain value of element''s state.');
+INSERT INTO db_cat_table_x_column VALUES ('element_state', 'element', 'state', 'varchar(16)', 'Domain value of element''s state.');
 INSERT INTO db_cat_table_x_column VALUES ('element_annotation', 'element', 'annotation', 'character varying(254)', 'Annotations related to element. Additional information.');
 INSERT INTO db_cat_table_x_column VALUES ('element_observ', 'element', 'observ', 'character varying(254)', 'Observations related to element. Additional information');
 INSERT INTO db_cat_table_x_column VALUES ('element_comment', 'element', 'comment', 'character varying(254)', 'Comments related to element. Additional information');
